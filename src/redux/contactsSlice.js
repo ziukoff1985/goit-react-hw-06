@@ -3,20 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const contactsSlice = createSlice({
   name: "contacts",
   initialState: {
-    items: [], // Список контактів
+    items: [],
   },
   reducers: {
     addContact: (state, action) => {
-      state.items.push(action.payload); // Додаємо новий контакт
+      state.items.push(action.payload);
     },
     deleteContact: (state, action) => {
       state.items = state.items.filter(
         (contact) => contact.id !== action.payload
-      ); // Видаляємо контакт за id
+      );
     },
   },
 });
 
-// Експортуємо редюсер та екшени
 export const { addContact, deleteContact } = contactsSlice.actions;
-export default contactsSlice.reducer;
+export const contactsReducer = contactsSlice.reducer;

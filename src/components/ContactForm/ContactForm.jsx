@@ -1,19 +1,18 @@
-import { Formik, Form, Field, ErrorMessage } from "formik"; // Модулі з Formik для роботи з формами
-import * as Yup from "yup"; // Бібліотека Yup для валідації форми
-import { nanoid } from "nanoid"; // Бібліотека Nanoid для генерації унікального ID
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { nanoid } from "nanoid";
 import styles from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsSlice";
 import { useId } from "react";
 
-// Створюємо схему валідації для форми
 const FormValidationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, '"Too Short!') // Мінімум 3 символи
-    .max(50, "Too Long Name!") // Максимум 50 символів
-    .required("Required"), // Поле обов'язкове
+    .min(3, '"Too Short!')
+    .max(50, "Too Long Name!")
+    .required("Required"),
   number: Yup.string()
-    .matches(/^\d+$/, "Only digits are allowed") // Тільки цифри дозволені
+    .matches(/^\d+$/, "Only digits are allowed")
     .min(3, '"Too Short!')
     .max(50, "Too Long Number!")
     .required("Required"),
