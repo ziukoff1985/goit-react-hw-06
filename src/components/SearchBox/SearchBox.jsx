@@ -11,7 +11,7 @@ const SearchBox = () => {
 
   const searchId = useId(); // Унікальний Id для зв'язування 'input' з 'label'
 
-  // Функція-обробник для зміни значення фільтру
+  // Функція-обробник для зміни значення фільтру (стан властивості 'name')
   // Відправляє екшен changeFilter із текстом, введеним у поле
   const handleChangeFilter = event => {
     dispatch(changeFilter(event.target.value));
@@ -39,6 +39,10 @@ const SearchBox = () => {
 };
 
 export default SearchBox;
+
+// ======================================================== //
+
+// *** Логіка ***
 
 // *** Загальна логіка: ***
 // - Компонент SearchBox забезпечує фільтрацію контактів за іменем.

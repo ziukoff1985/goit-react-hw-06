@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'; // Імпорт функції 'createSlice' з бібліотеки @reduxjs/toolkit для створення slice
 
-// / Створюємо slice для фільтру пошуку контактів
+// Створюємо slice для фільтру пошуку контактів
 const filtersSlice = createSlice({
   name: 'filters', // Назва slice, яка визначає його частину стану
   initialState: {
@@ -8,8 +8,9 @@ const filtersSlice = createSlice({
   },
   reducers: {
     // Редюсер для зміни фільтра (пошук за ім'ям)
+    // Використовується в компоненті 'SearchBox'
     changeFilter: (state, action) => {
-      state.name = action.payload; // Оновлюємо значення фільтра на основі action.payload
+      state.name = action.payload; // Оновлюємо значення властивості 'name' в стані (на основі action.payload)
     },
   },
 });
@@ -19,6 +20,10 @@ export const { changeFilter } = filtersSlice.actions;
 
 // Експортуємо редюсер для додавання його до Redux store
 export const filtersReducer = filtersSlice.reducer;
+
+// ======================================================== //
+
+// *** Логіка ***
 
 // »»»'createSlice':
 // - Це функція з @reduxjs/toolkit, яка допомагає створювати slice в Redux. Slice об'єднує логіку редюсерів, дій та початкового стану в один об'єкт.

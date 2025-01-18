@@ -45,7 +45,9 @@ export const store = configureStore({
 // Створюємо persistor для відновлення стану з redux-persist, з бібліотеки!!!
 export const persistor = persistStore(store);
 
-// Короткий алгоритм дій для файлу store.js:
+// ======================================================== //
+
+// *** Логіка ***
 
 // Імпортуємо залежності:
 

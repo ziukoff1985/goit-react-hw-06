@@ -1,20 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'; // Імпорт функції createSlice з бібліотеки @reduxjs/toolkit для створення slice
 
-// Створюємо slice для контактів
+// Створюємо slice для зміни стану контактів
 const contactsSlice = createSlice({
   name: 'contacts', // Назва slice, яка визначає його частину стану
   initialState: {
-    items: [], // Початковий стан: порожній масив контактів
+    items: [], // Початковий стан контактів - порожній масив
   },
   reducers: {
     // Редюсер для додавання нового контакту
+    // Використовується в компоненті 'ContactForm'
     addContact: (state, action) => {
       state.items.push(action.payload); // Додаємо новий контакт до масиву items
     },
     // Редюсер для видалення контакту за id
+    // Використовується в компоненті 'Contact'
     deleteContact: (state, action) => {
       state.items = state.items.filter(
-        contact => contact.id !== action.payload // Фільтруємо масив контактів, щоб видалити контакт з заданим id
+        contact => contact.id !== action.payload // Фільтруємо масив контактів, щоб видалити контакт з переданим id
       );
     },
   },
@@ -25,6 +27,10 @@ export const { addContact, deleteContact } = contactsSlice.actions;
 
 // Експортуємо редюсер для додавання його в Redux store
 export const contactsReducer = contactsSlice.reducer;
+
+// ======================================================== //
+
+// *** Логіка ***
 
 // »»» "createSlice":
 // Створює slice для контактів, що включає в себе редюсери, початковий стан та автоматично згенеровані дії.

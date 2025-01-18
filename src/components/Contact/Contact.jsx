@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'; // Хук для доступу до 
 import { deleteContact } from '../../redux/contactsSlice'; // action 'deleteContact' для видалення контакту з Redux-стану
 
 // Компонент для відображення картки контакту
+// Пропси з 'ContactList': {...contact} ✔✔✔ властивості контакта
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch(); // Функція для відправки 'action' у Redux
 
@@ -46,6 +47,10 @@ const Contact = ({ name, number, id }) => {
 };
 
 export default Contact;
+
+// ======================================================== //
+
+// *** Логіка ***
 
 // *** Загальна логіка: ***
 // - Компонент відповідає за візуальне представлення контакту та надає функціонал для його видалення через Redux.
