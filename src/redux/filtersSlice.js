@@ -7,7 +7,7 @@ const filtersSlice = createSlice({
     name: '', // Початковий стан фільтра - порожнє рядок для пошуку за ім'ям
   },
   reducers: {
-    // Редюсер для зміни фільтра (пошук за ім'ям)
+    // Редюсер для зміни фільтра (пошук за ім'ям контакту -> вводимо в input)
     // Використовується в компоненті 'SearchBox'
     changeFilter: (state, action) => {
       state.name = action.payload; // Оновлюємо значення властивості 'name' в стані (на основі action.payload)
