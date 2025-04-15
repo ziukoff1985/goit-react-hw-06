@@ -9,11 +9,13 @@ const contactsSlice = createSlice({
   reducers: {
     // Редюсер для додавання нового контакту
     // Використовується в компоненті 'ContactForm'
+    // action.payload - це об'єкт контакту, який містить id, name та number
     addContact: (state, action) => {
       state.items.push(action.payload); // Додаємо новий контакт до масиву items
     },
     // Редюсер для видалення контакту за id
     // Використовується в компоненті 'Contact'
+    // action.payload - це id контакту, який потрібно видалити
     deleteContact: (state, action) => {
       state.items = state.items.filter(
         contact => contact.id !== action.payload // Фільтруємо масив контактів, щоб видалити контакт з переданим id
