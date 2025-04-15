@@ -8,7 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react'; // PersistGate - 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* Provider pабезпечує доступ до Redux store для всіх компонентів */}
+    {/* Provider забезпечує доступ до Redux store для всіх компонентів - використовується для підключення Redux до додатку (аналогія React useContext) */}
     <Provider store={store}>
       {/* PersistGate забезпечує відновлення стану з redux-persist перед рендером додатка */}
       <PersistGate loading={null} persistor={persistor}>
@@ -18,7 +18,8 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>
 );
 // Provider:
-// - компонент з бібліотеки react-redux, який надає доступ до Redux store для всіх дочірніх компонентів. Це дозволяє компонентам підключатися до Redux store, щоб отримати і змінювати стан. Обов'язково огрнути Арр!!!
+// - компонент з бібліотеки react-redux, який надає доступ до Redux store для всіх дочірніх компонентів. Це дозволяє компонентам підключатися до Redux store, щоб отримати і змінювати стан.
+// ✅ Обов'язково огрнути Арр!!!
 
 // PersistGate:
 // - компонент з бібліотеки redux-persist, який відповідає за збереження (в Local Storage) і відновлення стану Redux. PersistGate чекає на відновлення стану перед рендерингом додатка, щоб забезпечити збереження даних після перезавантаження сторінки.

@@ -25,11 +25,11 @@ const persistConfig = {
 // Додаємо наш Reducer (contactsReducer), на його місце - persistedReducer (в const store)
 const persistedReducer = persistReducer(persistConfig, contactsReducer);
 
-// Конфігурація Redux store
+// Конфігурація Redux store - загальний стан застосунку
 export const store = configureStore({
   reducer: {
-    contacts: persistedReducer, // Стан контактів буде зберігатися і відновлюватися через 'persistReducer'
-    filters: filtersReducer, // Reducer для фільтрів пошуку (зі слайсу 'filtersSlice.js')
+    contacts: persistedReducer, // Стан контактів буде зберігатися (в localStorage) і відновлюватися через 'persistReducer'
+    filters: filtersReducer, // Reducer для фільтрів пошуку (зі слайсу 'filtersSlice.js') - відповідає за фільтрацію контактів за ім'ям через 'SearchBox'
   },
 
   // Налаштовуємо middleware для Redux store, щоб ігнорувати певні дії redux-persist, з бібліотеки!!!

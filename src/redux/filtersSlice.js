@@ -19,6 +19,8 @@ const filtersSlice = createSlice({
 export const { changeFilter } = filtersSlice.actions;
 
 // Експортуємо редюсер для додавання його до Redux store
+// Це дозволяє Redux знати, як змінювати стан фільтрів при отриманні дій (actions)
+// filtersReducer (назва довільна) - це функція, яка обробляє дії (actions) та змінює стан фільтрів в Redux store
 export const filtersReducer = filtersSlice.reducer;
 
 // ======================================================== //

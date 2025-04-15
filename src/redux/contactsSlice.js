@@ -8,14 +8,18 @@ const contactsSlice = createSlice({
   },
   reducers: {
     // Редюсер для додавання нового контакту
+    // addContact -> дія (action) для додавання нового контакту
     // Використовується в компоненті 'ContactForm'
-    // action.payload - це об'єкт контакту, який містить id, name та number
+    // action.payload - це об'єкт контакту, який містить id, name та number -> дані контакту передаються під час виклику addContact в компоненті 'ContactForm.jsx'
+    // state.items - масив контактів, в якому зберігаються всі контакти
     addContact: (state, action) => {
       state.items.push(action.payload); // Додаємо новий контакт до масиву items
     },
     // Редюсер для видалення контакту за id
+    // deleteContact -> дія (action) для видалення контакту
     // Використовується в компоненті 'Contact'
-    // action.payload - це id контакту, який потрібно видалити
+    // action.payload - це id контакту, який потрібно видалити -> id контакту передається під час виклику deleteContact в компоненті 'Contact.jsx'
+    // state.items - масив контактів, в якому зберігаються всі контакти
     deleteContact: (state, action) => {
       state.items = state.items.filter(
         contact => contact.id !== action.payload // Фільтруємо масив контактів, щоб видалити контакт з переданим id
@@ -24,10 +28,12 @@ const contactsSlice = createSlice({
   },
 });
 
-// Експортуємо action 'addContact' і 'deleteContact' для використання в компонентах
+// Експортуємо 'екшени' -> 'addContact' і 'deleteContact' для використання в компонентах
 export const { addContact, deleteContact } = contactsSlice.actions;
 
-// Експортуємо редюсер для додавання його в Redux store
+// Експортуємо редюсер для додавання його в Redux store (store.js)
+// Це дозволяє Redux знати, як змінювати стан контактів при отриманні дій (actions)
+// contactsReducer (назва довільна) - це функція, яка обробляє дії (actions) та змінює стан контактів в Redux store
 export const contactsReducer = contactsSlice.reducer;
 
 // ======================================================== //
